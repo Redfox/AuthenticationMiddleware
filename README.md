@@ -18,13 +18,13 @@
 ```C#
 public Task Invoke(HttpContext httpContext)
 {
-    var path = httpContext.Request.Path;
+	var path = httpContext.Request.Path;
 
-    if(path.HasValue && path.Value.StartsWith("/admin"))
-	if (httpContext.Session.GetString("Nome") == null)
-	    httpContext.Response.Redirect("/account");
+	if(path.HasValue && path.Value.StartsWith("/admin"))
+		if (httpContext.Session.GetString("Nome") == null)
+	    		httpContext.Response.Redirect("/account");
 
-    return _next(httpContext);
+	return _next(httpContext);
 }
 ```
 Verifica se existe uma sessão com "Nome", se não redireciona para logar
@@ -35,9 +35,9 @@ Verifica se existe uma sessão com "Nome", se não redireciona para logar
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 {
 	//Code
-	
+
 	app.UseMiddleware<AuthenticationMiddleware>();
-	
+
 	//Code
 }
 ```
