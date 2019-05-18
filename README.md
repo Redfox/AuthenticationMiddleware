@@ -13,19 +13,6 @@
 
 # Middleware
 
-### Startup.cs
-
-```C#
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-{
-	//Code
-	
-	app.UseMiddleware<AuthenticationMiddleware>();
-	
-	//Code
-}
-```
-Implementação do Middleware
 
 ### AuthenticationMiddleware.cs
 ```C#
@@ -41,6 +28,20 @@ Implementação do Middleware
         }
 ```
 Verifica se existe uma sessão com "Nome", se não redireciona para logar
+
+### Startup.cs
+
+```C#
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+	//Code
+	
+	app.UseMiddleware<AuthenticationMiddleware>();
+	
+	//Code
+}
+```
+Implementação do Middleware
 
 ### AccountController.cs
 ```C#
